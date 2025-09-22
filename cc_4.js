@@ -41,6 +41,13 @@ const customers = [
         cart: [ { sku: "001", quantity: 1 }, { sku: "002", quantity: 1 }, { sku: "003", quantity: 2 } ] }
 ];
 
+// Check out simulation for each customer
+for ( let i = 0; i < customers.length; i++ ) {
+    let customer = customers[i];
+    let subtotal = 0;
+
+
+
 // Discount by Customer Type
 let extraDiscounts = 0;
  if (customer.customerType === "student") {
@@ -49,4 +56,5 @@ let extraDiscounts = 0;
     extraDiscounts = 0.07;
 } else {
     extraDiscounts = 0;
+}
 }
