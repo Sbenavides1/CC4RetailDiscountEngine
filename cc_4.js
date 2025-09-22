@@ -40,5 +40,13 @@ const customers = [
     { name: "Charlie", customerType: "regular", couponCode: null, taxRate: 0.085,
         cart: [ { sku: "001", quantity: 1 }, { sku: "002", quantity: 1 }, { sku: "003", quantity: 2 } ] }
 ];
-    
-    ]
+
+// Discount by Customer Type
+let extraDiscounts = 0;
+ if (customer.customerType === "student") {
+    extraDiscounts = 0.05;
+} else if (customer.customerType === "senior") {
+    extraDiscounts = 0.07;
+} else {
+    extraDiscounts = 0;
+}
