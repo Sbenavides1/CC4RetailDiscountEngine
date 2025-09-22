@@ -81,3 +81,13 @@ let sampleProduct = products[0];
 for (let key in sampleProduct) {
     console.log(`${key}: ${sampleProduct[key]}`);
 }
+
+// object entries
+console.log("Object entries of all products:");
+for (let product of products) {
+    for (let [key, value] of Object.entries(product)) {
+        console.log(`${key}: ${value}`);
+    }
+    console.log("-----");
+}
+
