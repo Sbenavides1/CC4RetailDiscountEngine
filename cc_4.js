@@ -28,3 +28,5 @@ for (let product of products) {
     }
     product.discountedPrice = product.price * (1 - discount);
 }
+
+console.log(products);
