@@ -46,7 +46,21 @@ for ( let i = 0; i < customers.length; i++ ) {
     let customer = customers[i];
     let subtotal = 0;
 
-
+    // Calculate subtotal
+    for (let line of customer.cart) {
+        let product;
+        for (let p of products) {
+            if (p.sku === line.sku) {
+                product = p;
+                break;
+            }
+        }
+        if (product && product.inventory > 0) {
+            let quantity = Math.min(line.quantity, product.inventory);
+            subtotal += product.discountedPrice * quantity;
+            product.inventory -= quantity; 
+        }
+    }
 
 // Discount by Customer Type
 let extraDiscounts = 0;
@@ -57,4 +71,6 @@ let extraDiscounts = 0;
 } else {
     extraDiscounts = 0;
 }
+let finishedTotal = subtotal * (1 - extraDiscounts);
+console.log(`customer ${i +1} (${customer.name}, ${customer.customerType}) total: $${finishedTotal.toFixed(2)}`);
 }
