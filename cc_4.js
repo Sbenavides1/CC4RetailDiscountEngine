@@ -63,14 +63,21 @@ for ( let i = 0; i < customers.length; i++ ) {
     }
 
 // Discount by Customer Type
-let extraDiscounts = 0;
+let extraDiscount = 0;
  if (customer.customerType === "student") {
-    extraDiscounts = 0.05;
+    extraDiscount = 0.05;
 } else if (customer.customerType === "senior") {
-    extraDiscounts = 0.07;
+    extraDiscount = 0.07;
 } else {
-    extraDiscounts = 0;
+    extraDiscount = 0;
 }
-let finishedTotal = subtotal * (1 - extraDiscounts);
+let finishedTotal = subtotal * (1 - extraDiscount);
 console.log(`customer ${i +1} (${customer.name}, ${customer.customerType}) total: $${finishedTotal.toFixed(2)}`);
+}
+
+// product after discount
+console.log("Products after discount:");
+let sampleProduct = products[0];
+for (let key in sampleProduct) {
+    console.log(`${key}: ${sampleProduct[key]}`);
 }
